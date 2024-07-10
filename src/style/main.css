@@ -13,11 +13,17 @@ main {
 	background: #bada55;
 	width: 100vw;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .controls {
 	top: 2rem;
 	left: 2rem;
+	position: relative;
+	display: flex;
+	align-self: flex-start;
+	justify-self: flex-start;
 }
 
 .control {
@@ -45,6 +51,7 @@ main {
 	border-radius: .4rem;
 	border: 2px solid green;
 	box-shadow: 1px 1px 4px 2px #557668;
+	margin: auto;
 }
 
 .count_button:active {
