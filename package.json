@@ -7,11 +7,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint .",
+    "prettier": "prettier --config .prettierrc src/**/*.ts --write"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
-    "vitest": "^1.2.1"
+    "vitest": "^1.2.1",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.2"
   }
 }
