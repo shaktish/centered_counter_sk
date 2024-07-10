@@ -1,27 +1,24 @@
 import { factory } from "./factory";
 
-let count = factory(0, 1);
-
-function update_count_and_reset_counter() {}
-
-const start_at_control = document.getElementById(
-  "start_at",
-) as HTMLInputElement;
-
+const start_at_control = document.getElementById("start_at",) as HTMLInputElement;
 const step_control = document.getElementById("step") as HTMLInputElement;
+const count_button = document.querySelector(".count_button",) as HTMLButtonElement;
+const current_count = document.querySelector(".current_count",) as HTMLSpanElement;
 
-start_at_control?.addEventListener("change", () => {});
+let countFunction = factory(Number(start_at_control.value), Number(step_control.value));
 
-step_control?.addEventListener("change", () => {});
+start_at_control?.addEventListener("input", update_count_and_reset_counter);
+step_control?.addEventListener("input", update_count_and_reset_counter);
 
-const count_button = document.querySelector(
-  ".count_button",
-) as HTMLButtonElement;
 
-const current_count = document.querySelector(
-  ".current_count",
-) as HTMLSpanElement;
+function update_count_and_reset_counter() {
+  const startValue = Number(start_at_control.value);
+  const stepValue = Number(step_control.value);
+  countFunction = factory(startValue, stepValue);
+  current_count.textContent = !isNaN(startValue) ? startValue.toString() : '0';
+}
 
-function update_count() {}
-
-count_button.addEventListener("click", update_count);
+count_button.addEventListener("click", () => {
+  const count = countFunction();
+  current_count.textContent = !isNaN(count) ? count.toString() : '0';;
+});
